@@ -1,0 +1,160 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #ffccf9;
+    font-family: 'Pacifico', cursive;
+    color: #ff1493;
+    overflow: hidden;
+    position: relative;
+}
+
+#input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#time-input-box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#time-input-box label {
+    margin-right: 10px;
+}
+
+#countdown-time {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #ff1493;
+    text-align: center;
+    font-size: 1.2em;
+    padding: 5px;
+}
+
+#start-button, #restart-button {
+    background-color: #ff1493;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: transform 0.2s;
+}
+
+#start-button:active, #restart-button:active {
+    transform: scale(1.1);
+}
+
+#clock {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.clock-face {
+    width: 100%;
+    height: 100%;
+    background: url('https://img.freepik.com/premium-vector/y2k-pink-watch-teen-girl-00s-electronic-clock-with-heart-cute-nostalgia-icon_522613-1055.jpg?w=740') no-repeat center center;
+    background-size: cover;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.time {
+    font-size: 2em;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    transition: color 0.5s;
+}
+
+.icon {
+    position: absolute;
+    font-size: 2em;
+    opacity: 0.7;
+    animation: float 5s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+#end-message {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.5em;
+    color: #ff1493;
+    opacity: 0;
+    transform: scale(0);
+    animation: fadeIn 1s forwards, spin 8s ease-in-out;
+}
+
+#end-message img {
+    width: 200px;
+    height: auto;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(1440deg); /* 4 full rotations */
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    body {
+        padding: 20px;
+    }
+    #clock {
+        width: 150px;
+        height: 150px;
+    }
+    .time {
+        font-size: 1.5em;
+    }
+    #countdown-time {
+        width: 40px;
+        height: 40px;
+        font-size: 1em;
+    }
+    #start-button, #restart-button {
+        padding: 8px 16px;
+        font-size: 1em;
+    }
+    #end-message img {
+        width: 150px;
+    }
+    .icon {
+        font-size: 1.5em;
+    }
+}
